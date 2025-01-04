@@ -42,7 +42,7 @@ class PaymentControllerTest {
 
     @Test
     void testProcessPayment() throws Exception {
-        // Arrange
+
         Payment payment = new Payment();
         payment.setOrderId("12345");
         payment.setCustomerId("54321");
@@ -63,7 +63,7 @@ class PaymentControllerTest {
 
         when(paymentService.processPayment(any(Payment.class))).thenReturn(processedPayment);
 
-        // Act & Assert
+
         mockMvc.perform(post("/api/payments")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(payment)))

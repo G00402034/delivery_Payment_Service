@@ -35,7 +35,7 @@ class PaymentServiceTest {
 
     @Test
     void testProcessPayment() {
-        // Arrange
+
         Payment payment = new Payment();
         payment.setOrderId("12345");
         payment.setCustomerId("54321");
@@ -56,10 +56,10 @@ class PaymentServiceTest {
 
         when(paymentRepository.save(any(Payment.class))).thenReturn(savedPayment);
 
-        // Act
+
         Payment result = paymentService.processPayment(payment);
 
-        // Assert
+
         assertNotNull(result);
         assertEquals("Successful", result.getStatus());
         verify(paymentRepository, times(1)).save(any(Payment.class));
